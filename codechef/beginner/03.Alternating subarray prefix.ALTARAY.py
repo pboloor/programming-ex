@@ -48,7 +48,7 @@ Example case 3. The only alternating subarray of length 3 is A3..5.
 T = input("T:")
 for i in range(T):
     N = input("N:")
-    A = map(int, raw_input("A:").split()) #convert space seperated inputs into list elements
+    A = [int(i) for i in raw_input("A:").split()] #convert space seperated inputs into list elements #more pythonic
     for i in range(N):  #traverse the array
         aal = 1
         if i <> N-1:

@@ -64,4 +64,53 @@ Explanation:
 
 #!/usr/bin/python
 
-# Code goes here
+#Codechef : Chef And Coloring
+#Problem Code: COLOR
+
+#Codechef : Chef And Coloring
+#Problem Code: COLOR
+
+T = 1 # Number of test cases
+T_san = False # Input sanitized
+N = 1 # Number of rooms in Chef's house
+N_san = False # Input sanitized
+S = '' # Room colors
+S_san = False # Input sanitized
+
+while T_san == False:
+    T = input("Number of test cases(1-10): ")
+    if 1 <= T <= 10:
+        T_san = True
+    else:
+        print "T should be between 1 and 10. Try again.\n"
+
+for i in range(T):
+    print "\nTest case:", i+1 ,"\n"
+    
+    N_san = False
+    S_san = False
+    
+    while N_san == False:
+        N = input("Number of rooms (1-100,000): ")
+        if 1 <= N <= 100000:
+            N_san = True
+        else:
+            print "N should be between 1 and 100,000. Try again.\n"
+    
+    while S_san == False:
+        S = raw_input("Room colors:")
+        if len(S) < N:
+            S = S + raw_input("Enter " + str(N-len(S)) + " more room colors:")
+        if len(S) > N:
+            S = S[0:N] # Truncate S if greater than N
+        print "Room colors are:", S 
+        for letter in S:
+            if letter <> 'R' and letter <> 'G' and letter <> 'B':
+                print 'String is incorrect. Must be R, G or B.'
+                S_san = False
+            else:
+                S_san = True
+
+                    
+    P = N - max(S.count('R'), S.count('G'), S.count('B'))
+    print "Number of rooms to paint: ", P
